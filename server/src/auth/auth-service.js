@@ -17,5 +17,10 @@ const config = require('../config');
       algorithm: 'HS256',
     })
   },
-   parseBasicToken(token) {}
+  verifyJwt(token){
+    return jwt.verify(token, config.JWT_SECRET, {
+      algorithms: ['HS256']
+    })
+  },
+  parseBasicToken(token) {}
 }
